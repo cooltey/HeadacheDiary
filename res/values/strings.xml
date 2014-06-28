@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">頭痛日記</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Calendar -->
+    <string name="week_sun">Sun</string>
+    <string name="week_mon">Mon</string>
+    <string name="week_tue">Tue</string>
+    <string name="week_wed">Wed</string>
+    <string name="week_thu">Thu</string>
+    <string name="week_fri">Fri</string>
+    <string name="week_sat">Sat</string>
+    
+    <!-- Sheet Content -->
+    <string name="sheet_patient_app_title">填寫日記</string>
+    <string name="sheet_patient_name">病人姓名</string>
+    <string name="sheet_patient_id">病歷號碼</string>
+    <string name="sheet_headache_level_title">頭痛程度</string>
+    <string name="sheet_headache_level_1">小痛</string>
+    <string name="sheet_headache_level_2">中痛</string>
+    <string name="sheet_headache_level_3">大痛</string>
+    <string name="sheet_headache_level_time_morning">早上</string>
+    <string name="sheet_headache_level_time_afternoon">下午</string>
+    <string name="sheet_headache_level_time_night">晚上</string>
+    <string name="sheet_headache_level_time_sleep">睡眠</string>
+    <string name="sheet_headache_symptom_title">是否伴隨下列症狀，請勾選</string>
+    <string name="sheet_headache_symptom_1">有噁心的感覺嗎？</string>
+    <string name="sheet_headache_symptom_2">有嘔吐嗎？</string>
+    <string name="sheet_headache_symptom_3">對光線敏感嗎？</string>
+    <string name="sheet_headache_symptom_4">對聲音敏感嗎？</string>
+    <string name="sheet_headache_symptom_5">頭痛的感覺像脈博一樣一下一下跳動嗎？</string>
+    <string name="sheet_headache_symptom_6">頭痛由單側開始嗎？</string>
+    <string name="sheet_headache_symptom_7">身體活動會加重頭痛嗎？</string>
+    <string name="sheet_headache_sign_title">頭痛前會有何預兆出現？</string>
+    <string name="sheet_headache_sign_1">眼前出現閃光</string>
+    <string name="sheet_headache_sign_2">部分視野看不見</string>
+    <string name="sheet_headache_hours">當日頭痛幾個小時？</string>
+    <string name="sheet_headache_medicine_title">服用藥物名稱及劑量</string>
+    <string name="sheet_headache_medicine_1">Topamax/25mg</string>
+    <string name="sheet_headache_useful_title">止痛藥有效嗎？</string>
+    <string name="sheet_headache_useful_level_1">沒效</string>
+    <string name="sheet_headache_useful_level_2">一點點效</string>
+    <string name="sheet_headache_useful_level_3">有效</string>
+    <string name="sheet_headache_useful_level_4">完全不痛</string>
+    <string name="sheet_headache_useful_option_1">Tylenol Extra-Strength/500mg x 2-5 顆</string>
+    <string name="sheet_headache_useful_option_2">Imigran/50mg x 1 顆</string>
+    <string name="sheet_headache_useful_option_3">Imigran/50mg x 2 顆</string>
+    <string name="sheet_headache_useful_option_4">是否有不寧腿</string>
+    <string name="sheet_headache_period">有月經的日子，請打勾</string>
+    <string name="sheet_headache_submit">儲存紀錄</string>
+</resources>
