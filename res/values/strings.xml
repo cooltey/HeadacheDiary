@@ -4,6 +4,8 @@
     <string name="app_name">頭痛日記</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="introduce">根據您每日頭痛症狀，請點選個別日期進行記錄的動作。\n\n左右滑動可選擇月份。</string>
+    <string name="demo_string">Demo Version</string>
 
     <!-- Calendar -->
     <string name="week_sun">Sun</string>
@@ -50,5 +52,15 @@
     <string name="sheet_headache_useful_option_3">Imigran/50mg x 2 顆</string>
     <string name="sheet_headache_useful_option_4">是否有不寧腿</string>
     <string name="sheet_headache_period">有月經的日子，請打勾</string>
-    <string name="sheet_headache_submit">儲存紀錄</string>
+    <string name="sheet_headache_submit">儲存</string>
+    <string name="sheet_headache_cancel">取消</string>
+    
+    
+    <string name="dialog_submit_title">注意</string>
+    <string name="dialog_submit_msg">是否要儲存紀錄？</string>
+    <string name="dialog_cancel_title">注意</string>
+    <string name="dialog_cancel_msg">是否要回到上一頁？</string>
+    <string name="dialog_action_ok">確定</string>
+    <string name="dialog_action_cancel">取消</string>
+    <string name="dialog_loading">載入中</string>
 </resources>

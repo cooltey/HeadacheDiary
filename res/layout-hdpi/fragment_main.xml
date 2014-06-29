@@ -37,19 +37,19 @@
 		    android:id="@+id/calendar_date"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		   	android:layout_margin="10dp"
-		   	android:textSize="26sp"/>
+		   	android:layout_margin="7dp"
+		   	android:textSize="22sp"/>
 		<RelativeLayout
 		    android:id="@+id/calendar_control_zone"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 	   		android:layout_below="@+id/calendar_date" 
-		   	android:layout_margin="10dp">
+		   	android:layout_margin="7dp">
 	        <TextView
 	            android:id="@+id/calendar_prev_month"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:textSize="16sp"
+	            android:textSize="13sp"
 	            android:layout_alignParentLeft="true"
 	            android:textStyle="italic"
 	            />
@@ -57,7 +57,7 @@
 	            android:id="@+id/calendar_next_month"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content" 
-	            android:textSize="16sp"
+	            android:textSize="13sp"
 	            android:layout_alignParentRight="true"
 	            android:textStyle="italic"
 	            />
