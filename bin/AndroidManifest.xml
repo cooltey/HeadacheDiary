@@ -33,6 +33,13 @@
             android:configChanges="orientation"
 			android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name="com.cooltey.headachediary.SetupActivity"
+            android:label="@string/setup_patient_app_title"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation"
+			android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

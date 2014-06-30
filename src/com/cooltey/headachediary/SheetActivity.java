@@ -1,6 +1,7 @@
 package com.cooltey.headachediary;
 
 import lib.DatabaseHelper;
+import lib.SetupPersonalInformation;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -45,12 +47,15 @@ public class SheetActivity extends Activity {
 	private Spinner  sheetHeadcheUsefulOption_3;
 	private Spinner  sheetHeadcheUsefulOption_4;
 	private CheckBox sheetPeriod;
+	private LinearLayout sheetPeriodZone;
 	private Button	 sheetSubmit;
 	private Button	 sheetCancel;
 	
 	private DatabaseHelper db;
 	private long getRecordId = 0;
 	private Context mContext;
+
+	private SetupPersonalInformation spl;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,6 +66,7 @@ public class SheetActivity extends Activity {
 		final boolean hasRecord = intent.getBooleanExtra("hasRecord", false);
 		
 		mContext = this;
+		spl = new SetupPersonalInformation(this);
 		
 		// set db
 		db = new DatabaseHelper(this);
@@ -88,8 +94,19 @@ public class SheetActivity extends Activity {
 		sheetHeadcheUsefulOption_3 = (Spinner) findViewById(R.id.sheet_headache_useful_option_3);
 		sheetHeadcheUsefulOption_4 = (Spinner) findViewById(R.id.sheet_headache_useful_option_4);
 		sheetPeriod = (CheckBox) findViewById(R.id.sheet_headache_period);
+		sheetPeriodZone = (LinearLayout) findViewById(R.id.sheet_headache_period_zone);
 		sheetSubmit = (Button) findViewById(R.id.submit);
 		sheetCancel = (Button) findViewById(R.id.cancel);
+		
+		// boys dont need period
+		String getPatientName = spl.getPatientName();
+		String getPatientId   = spl.getPatientId();
+		if(spl.getPatientGender() == 1){
+			sheetPeriodZone.setVisibility(View.GONE);
+		}
+		
+		sheetPatientName.setText(getPatientName);
+		sheetPatientId.setText(getPatientId);
 		
 		// set spinner
 		ArrayAdapter<CharSequence> spinnerHeadcheLevelAdapter = ArrayAdapter.createFromResource(this, R.array.headache_levels, android.R.layout.simple_spinner_item);
@@ -143,11 +160,11 @@ public class SheetActivity extends Activity {
 					sheetSignOption_2.setChecked(Boolean.parseBoolean(cData.getString(16)));
 					sheetHeadcheHours.setSelection(Integer.parseInt(cData.getString(17)));
 					sheetHeadcheMedicine.setSelection(Integer.parseInt(cData.getString(18)));
-					sheetHeadcheUsefulOption_1.setSelection(Integer.parseInt(cData.getString(18)));
-					sheetHeadcheUsefulOption_2.setSelection(Integer.parseInt(cData.getString(19)));
-					sheetHeadcheUsefulOption_3.setSelection(Integer.parseInt(cData.getString(20)));
-					sheetHeadcheUsefulOption_4.setSelection(Integer.parseInt(cData.getString(21)));
-					sheetPeriod.setChecked(Boolean.parseBoolean(cData.getString(22)));
+					sheetHeadcheUsefulOption_1.setSelection(Integer.parseInt(cData.getString(19)));
+					sheetHeadcheUsefulOption_2.setSelection(Integer.parseInt(cData.getString(20)));
+					sheetHeadcheUsefulOption_3.setSelection(Integer.parseInt(cData.getString(21)));
+					sheetHeadcheUsefulOption_4.setSelection(Integer.parseInt(cData.getString(22)));
+					sheetPeriod.setChecked(Boolean.parseBoolean(cData.getString(23)));
 				}
 			}
 		}

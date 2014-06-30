@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">    
+    <LinearLayout
+        android:id="@+id/button_zone"
+   		android:layout_width="match_parent"
+  		android:layout_height="wrap_content"
+ 		android:orientation="horizontal"
+	    android:layout_alignParentBottom="true">	    
+	    <Button 
+	        android:id="@+id/cancel"
+	        android:layout_width="0dp"
+	        android:layout_weight="0.5"
+	        android:layout_height="match_parent"
+	        android:text="@string/setup_cancel"
+	        />    
+	    <Button 
+	        android:id="@+id/submit"
+	        android:layout_width="0dp"
+	        android:layout_weight="0.5"
+	        android:layout_height="match_parent"
+	        android:text="@string/setup_submit"
+	        />
+	</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/setup_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_zone"
+        android:layout_alignParentTop="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/setup_patient_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/setup_patient_title"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/setup_patient_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/setup_patient_name" 
+	        android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/setup_patient_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/setup_patient_id" 
+	        android:layout_margin="5dp"/>
+		<LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	            android:layout_margin="5dp">
+	         <TextView
+	            android:id="@+id/setup_patient_gender_text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:text="@string/setup_patient_gender" 
+	            android:textSize="22sp"
+	            android:layout_marginRight="5dp"/>
+	        <Spinner
+	            android:id="@+id/setup_patient_gender"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent" />		    
+		    
+		</LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

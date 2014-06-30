@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="setup_gender">
+        <item> </item>
+        <item>@string/setup_patient_gender_male</item>
+        <item>@string/setup_patient_gender_female</item>
+    </string-array>
     <string-array name="headache_levels">
         <item> </item>
         <item>@string/sheet_headache_level_1</item>

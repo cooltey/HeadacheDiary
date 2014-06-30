@@ -6,6 +6,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import lib.DatabaseHelper;
+import lib.SetupPersonalInformation;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -19,7 +20,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -57,36 +57,46 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		db = new DatabaseHelper(this);
 		
-		Calendar calendar = Calendar.getInstance();
-		int getCurrentMonth = calendar.get(Calendar.MONTH) + 1;
-		int getCurrentYear = calendar.get(Calendar.YEAR);
-		int itemCounter = 0;
-		int setCurrentDateItem = 0;
-		for(int i = calendar.get(Calendar.YEAR); i < (calendar.get(Calendar.YEAR) + 5); i++){
-			for(int m = 1; m <= 12; m++){
-				if(getCurrentYear == i && getCurrentMonth == m){
-					setCurrentDateItem = itemCounter;
+		SetupPersonalInformation spl = new SetupPersonalInformation(this);
+		if(spl.getSetupAlready()){
+			db = new DatabaseHelper(this);
+			
+			Calendar calendar = Calendar.getInstance();
+			int getCurrentMonth = calendar.get(Calendar.MONTH) + 1;
+			int getCurrentYear = calendar.get(Calendar.YEAR);
+			int itemCounter = 0;
+			int setCurrentDateItem = 0;
+			for(int i = calendar.get(Calendar.YEAR); i < (calendar.get(Calendar.YEAR) + 5); i++){
+				for(int m = 1; m <= 12; m++){
+					if(getCurrentYear == i && getCurrentMonth == m){
+						setCurrentDateItem = itemCounter;
+					}
+					String setDate = i + "/" + m;
+					if(m < 10){
+						setDate = i + "/0" + m;
+					}
+					dateData.add(setDate);
+					
+					itemCounter++;
 				}
-				String setDate = i + "/" + m;
-				if(m < 10){
-					setDate = i + "/0" + m;
-				}
-				dateData.add(setDate);
-				
-				itemCounter++;
 			}
+	        
+			adapter = new ArticleContentAdapter(getSupportFragmentManager());
+	    	
+	        pager = (ViewPager)findViewById(R.id.pager);
+	        pager.setAdapter(adapter);
+	        
+	        pager.setCurrentItem(setCurrentDateItem);
+	
+	        mContext = this;
+		}else{
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, SetupActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			finish();
 		}
-        
-		adapter = new ArticleContentAdapter(getSupportFragmentManager());
-    	
-        pager = (ViewPager)findViewById(R.id.pager);
-        pager.setAdapter(adapter);
-        
-        pager.setCurrentItem(setCurrentDateItem);
-
-        mContext = this;
 	}
 	
 	
@@ -117,7 +127,7 @@ public class MainActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
@@ -128,6 +138,10 @@ public class MainActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, SetupActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

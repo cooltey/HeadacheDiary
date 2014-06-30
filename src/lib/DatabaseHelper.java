@@ -51,18 +51,12 @@ import android.util.Log;
 			
 			db.execSQL(DATABASE_CREATE_TABLE);		
 			
-			DATABASE_CREATE_TABLE = "CREATE TABLE headache_name (_ID INTEGER PRIMARY KEY, " +
-					" patient_name TEXT, " +
-					" patient_id TEXT)";
-			
-			db.execSQL(DATABASE_CREATE_TABLE);	
 		}
 		
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 		{
 			db.execSQL("DROP TABLE IF EXISTS headache_record");	
-			db.execSQL("DROP TABLE IF EXISTS headache_name");	
 			onCreate(db);
 		}
 		
